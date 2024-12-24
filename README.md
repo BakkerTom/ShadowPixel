@@ -1,28 +1,42 @@
 # ShadowPixel
 
-[![CI Status](https://img.shields.io/travis/git/ShadowPixel.svg?style=flat)](https://travis-ci.org/git/ShadowPixel)
 [![Version](https://img.shields.io/cocoapods/v/ShadowPixel.svg?style=flat)](https://cocoapods.org/pods/ShadowPixel)
 [![License](https://img.shields.io/cocoapods/l/ShadowPixel.svg?style=flat)](https://cocoapods.org/pods/ShadowPixel)
 [![Platform](https://img.shields.io/cocoapods/p/ShadowPixel.svg?style=flat)](https://cocoapods.org/pods/ShadowPixel)
 
-## Example
+ShadowPixel is a service to monitor the health of your analytics implementation.
+It does this by hooking into Firebase Analytics, and monitoring logged events.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+The ShadowPixel service will check for irregularities in the logged information.
 
 ## Installation
+
+### Swift Package Manager
+
+Follow [this doc](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
+
+### CocoaPods
 
 ShadowPixel is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ShadowPixel'
+pod 'ShadowPixel', :git => 'https://github.com/BakkerTom/ShadowPixel'
+```
+
+## Usage
+
+To start montitoring analytic events, add the following code to your project:
+
+```swift
+let baseUrl = URL(string: "https://YOUR_SHADOW_PIXEL_ENVIRONMENT.app.run")!
+let options = ShadowPixelOptions(baseUrl: baseUrl, domain: "eftapp")
+ShadowPixel.configure(options: options)
 ```
 
 ## Author
 
-git, tom.bakker92@gmail.com
+Tom Bakker <tom.bakker92@gmail.com>
 
 ## License
 
